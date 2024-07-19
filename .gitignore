@@ -1,4 +1,4 @@
 .env
-conversations/
-logs/
-stories/
+ZZZ-conversations-ignored/
+ZZZ-logs-ignored/
+ZZZ-stories-ignored/

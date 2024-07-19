@@ -19,7 +19,7 @@ import random
 
 ### SET UP THE MODEL ###
 
-model = "claude-3-5-sonnet@20240620"
+model = "claude-3-5-sonnet-20240620"
 system_message = "You are a great writer, writing in the style of Curtis Sittenfeld. You are writing a 'beach read' vignette of ~1000 words."
 
 def ask_claude(messages):
@@ -111,8 +111,6 @@ if "FINISHED" not in assistant_response_finished:
         story_string += "\n\n" + assistant_response_really_finished
         story_chunk_word_counts.append(word_count(assistant_response_really_finished))
 
-
-
 ### give the story a title ###
 
 user_message_title = "Great, thanks! Now, please give the story a title. Please respond with only the title, and nothing else (e.g. don't say 'The title is...' or put it in quote-marks). This can be just a single word, or a longer and more descriptive title."
@@ -141,4 +139,3 @@ with open(f"logs/{timestamp}_log_'{assistant_response_title}'.txt", "w") as f:
     f.write(f"topics: {chosen_topics_string}\n\n")
     f.write(f"word counts of story chunks: {story_chunk_word_counts}\n\n")
     f.write(f"total time taken: {seconds_taken} seconds\n\n")
-
