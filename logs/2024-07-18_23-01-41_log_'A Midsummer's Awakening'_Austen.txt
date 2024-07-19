@@ -1,0 +1,10 @@
+model: claude-3-5-sonnet-20240620
+
+author: Jane Austen
+
+topics: the Midwest, lust, ice cream, sweat, and ennui
+
+word counts of story chunks: [118, 223, 230, 210, 186, 131]
+
+total time taken: 121 seconds
+

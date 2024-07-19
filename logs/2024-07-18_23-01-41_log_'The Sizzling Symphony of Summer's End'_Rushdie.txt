@@ -1,0 +1,10 @@
+model: claude-3-5-sonnet-20240620
+
+author: Salman Rushdie
+
+topics: high school, cookouts, privilege, pop songs, and swimsuits
+
+word counts of story chunks: [140, 221, 244, 237, 208, 130]
+
+total time taken: 754 seconds
+

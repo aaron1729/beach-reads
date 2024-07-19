@@ -1,0 +1,10 @@
+model: claude-3-5-sonnet-20240620
+
+author: Curtis Sittenfeld
+
+topics: ice cream, privilege, ennui, lust, and swimsuits
+
+word counts of story chunks: [112, 198, 173, 179, 186, 192]
+
+total time taken: 805 seconds
+

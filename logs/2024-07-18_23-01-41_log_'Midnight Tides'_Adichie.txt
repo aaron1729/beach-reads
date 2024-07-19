@@ -1,0 +1,10 @@
+model: claude-3-5-sonnet-20240620
+
+author: Chimamanda Ngozi Adichie
+
+topics: skinny-dipping, beer, pop songs, sweat, and regret
+
+word counts of story chunks: [133, 225, 242, 250, 192]
+
+total time taken: 57 seconds
+

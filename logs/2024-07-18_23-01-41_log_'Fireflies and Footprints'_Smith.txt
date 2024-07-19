@@ -1,0 +1,10 @@
+model: claude-3-5-sonnet-20240620
+
+author: Zadie Smith
+
+topics: the Midwest, sand, cookouts, ice cream, and bug spray
+
+word counts of story chunks: [137, 275, 266, 217, 214]
+
+total time taken: 858 seconds
+

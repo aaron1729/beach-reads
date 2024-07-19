@@ -1,0 +1,10 @@
+model: claude-3-5-sonnet-20240620
+
+author: David Foster Wallace
+
+topics: skinny-dipping, sand, beer, sweat, and kissing
+
+word counts of story chunks: [186, 276, 310, 261, 206]
+
+total time taken: 914 seconds
+

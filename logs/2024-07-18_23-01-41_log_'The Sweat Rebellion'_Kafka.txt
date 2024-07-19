@@ -1,0 +1,10 @@
+model: claude-3-5-sonnet-20240620
+
+author: Franz Kafka
+
+topics: the Midwest, sweat, high school, ennui, and lust
+
+word counts of story chunks: [144, 219, 192, 201, 180, 159, 211]
+
+total time taken: 369 seconds
+

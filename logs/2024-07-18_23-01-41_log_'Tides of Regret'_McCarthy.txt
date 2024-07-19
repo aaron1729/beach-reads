@@ -1,0 +1,10 @@
+model: claude-3-5-sonnet-20240620
+
+author: Cormac McCarthy
+
+topics: beer, swimsuits, ennui, sand, and regret
+
+word counts of story chunks: [118, 196, 187, 212, 203, 211]
+
+total time taken: 477 seconds
+

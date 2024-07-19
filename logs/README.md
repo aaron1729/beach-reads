@@ -1,0 +1,1 @@
+beware that logs from `2024-07-18_23-01-41` have incorrect time counts. (i added a `for` loop overall authors to ensure i got one story in each's style, but neglected to fix the counter accordingly.)
