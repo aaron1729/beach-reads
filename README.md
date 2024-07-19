@@ -1,5 +1,7 @@
 # beach-reads
 
+## Overview
+
 In the essay [ChatGPT vs. Me: Who Will Write a Better Beach Read?](https://www.nytimes.com/2024/07/09/opinion/chatgpt-beach-read.html), author Curtis Sittenfeld proposes a head-to-head competition against ChatGPT ("in its current iteration"), to see who can write a better "beach read". She asks her readers to select five topics from a list that she provides, and then explains the parameters.
 
 > Both stories will be the same length (1,000 words), and both will incorporate the same five prompts. ChatGPT, which will be told to write in my style, will complete its story in a few seconds; I’ll complete mine in a few weeks.
@@ -13,3 +15,10 @@ However, this arrangement does not constitute a true head-to-head competition. T
 This repository contains a very simple Python script that enables ChatGPT to "think" and then write a story, based on five topics and in the style of Sittenfeld (or another author of the user's choice).
 
 [^1] In ChatGPT's case, an apt name for this process is "unhobbling", in the sense that Leopold Aschenbrenner writes about [here](https://situational-awareness.ai/). Specifically, by construction, ChatGPT is "hobbled" (in comparison with its full cognitive capabilities) inasmuch as it is required to construct its responses one word at a time, without any possibility of meta-level thinking or revision.
+
+## notes
+
+`conda create --name beach-reads python=3.9` (to create a conda environment), then activate with `conda activate beach-reads` (and deactivate with `conda deactivate`).
+`
+
+install packages via `conda install -c conda-forge PACKAGE_NAME` (rather than `pip install PACKAGE_NAME`).
