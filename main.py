@@ -36,6 +36,7 @@ authors = [
     ["Virginia", "Woolf"],
     ]
 author_index = random.randint(0, len(authors) - 1)
+# author_index = len(authors) - 2
 author_name_list = authors[author_index]
 author_lname = author_name_list[-1]
 author = " ".join(author_name_list)
@@ -92,7 +93,7 @@ topics = [
 
 chosen_topics = [topics[index] for index in random.sample(range(len(topics)), 5)]
 chosen_topics_string = ", ".join(chosen_topics[: -1]) + ", and " + chosen_topics[-1]
-user_message_outline = "Great, thanks! Now, using the above tips, please outline a short story about " + chosen_topics_string + "."
+user_message_outline = f"Great, thanks! Now, using the above tips, please outline a short vignette in the style of {author} about " + chosen_topics_string + "."
 conversation.append({"role": "user", "content": user_message_outline})
 assistant_response_outline = ask_claude(conversation)
 conversation.append({"role": "assistant", "content": assistant_response_outline})

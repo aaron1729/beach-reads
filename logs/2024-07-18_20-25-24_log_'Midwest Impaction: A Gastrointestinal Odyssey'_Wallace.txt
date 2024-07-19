@@ -1,0 +1,10 @@
+model: claude-3-5-sonnet-20240620
+
+author: David Foster Wallace
+
+topics: ennui, constipation, pop songs, the Midwest, and regret
+
+word counts of story chunks: [200, 214, 233, 197, 242]
+
+total time taken: 56 seconds
+
