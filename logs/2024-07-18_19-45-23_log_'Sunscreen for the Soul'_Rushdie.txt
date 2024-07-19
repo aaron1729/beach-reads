@@ -1,0 +1,10 @@
+model: claude-3-5-sonnet-20240620
+
+author: Salman Rushdie
+
+topics: ennui, beer, ambivalence, self-consciousness, and sunscreen
+
+word counts of story chunks: [151, 230, 193, 227, 205]
+
+total time taken: 54 seconds
+

@@ -19,8 +19,30 @@ import random
 
 ### SET UP THE MODEL ###
 
+authors = [
+    ["Chimamanda Ngozi", "Adichie"],
+    ["Jane", "Austen"],
+    ["William", "Faulkner"],
+    ["Ernest", "Hemingway"],
+    ["James", "Joyce"],
+    ["Toni", "Morrison"],
+    ["Haruki", "Murakami"],
+    ["Vladimir", "Nabokov"],
+    ["J.K.", "Rowling"],
+    ["Salman", "Rushdie"],
+    ["Curtis", "Sittenfeld"],
+    ["Zadie", "Smith"],
+    ["David Foster", "Wallace"],
+    ["Virginia", "Woolf"],
+    ]
+author_index = random.randint(0, len(authors) - 1)
+author_name_list = authors[author_index]
+author_lname = author_name_list[-1]
+author = " ".join(author_name_list)
+print(f"{author = }")
+
 model = "claude-3-5-sonnet-20240620"
-system_message = "You are a great writer, writing in the style of Curtis Sittenfeld. You are writing a 'beach read' vignette of ~1000 words."
+system_message = f"You are a great writer, writing in the style of {author}. You are writing a 'beach read' vignette of ~1000 words."
 
 def ask_claude(messages):
     response = claude.messages.create(
@@ -36,7 +58,7 @@ def ask_claude(messages):
 
 ### get general tips for writing in C.S.'s style ###
 
-user_message_setup = "Please start by giving some tips on writing a short vignette in the style of Curtis Sittenfeld."
+user_message_setup = f"Please start by giving some tips on writing a short vignette in the style of {author}."
 conversation = [{"role": "user", "content": user_message_setup}]
 
 assistant_response_setup = ask_claude(conversation)
@@ -68,7 +90,7 @@ topics = [
     "lust",
 ]
 
-chosen_topics = [topics[index] for index in random.sample(range(20), 5)]
+chosen_topics = [topics[index] for index in random.sample(range(len(topics)), 5)]
 chosen_topics_string = ", ".join(chosen_topics[: -1]) + ", and " + chosen_topics[-1]
 user_message_outline = "Great, thanks! Now, using the above tips, please outline a short story about " + chosen_topics_string + "."
 conversation.append({"role": "user", "content": user_message_outline})
@@ -87,7 +109,7 @@ story_chunk_word_counts.append(word_count(assistant_response_start_writing))
 story_string = assistant_response_start_writing
 
 while word_count(story_string) < 1000:
-    user_message_continue_writing = f"Great, thanks! Now, please continue the story. Keep in mind the writing tips you listed earlier, and the fact that we are shooting for it to be around 1000 words in total.\n\nTo help with pacing, please note that the word count thus far is {word_count(story_string)}. In particular, if this is getting towards 1000 words, please wrap up the story.\n\nPlease do not respond with anything besides the next piece of the story. For instance, do not list the word count of your response."
+    user_message_continue_writing = f"Great, thanks! Now, please continue the story. Keep in mind the writing tips you listed earlier, and the fact that we are shooting for it to be around 1000 words in total.\n\nTry not to write too much at once -- keep it around 300 words at most. Write enough that your future self will be able to follow the thread, but keep in mind that overall you do better when writing small chunks bit by bit.\n\nTo help with pacing, please note that the word count thus far is {word_count(story_string)}. In particular, if this is getting towards 1000 words, please wrap up the story.\n\nPlease do not respond with anything besides the next piece of the story. For instance, do not list the word count of your response."
     conversation.append({"role": "user", "content": user_message_continue_writing})
     assistant_response_continue_writing = ask_claude(conversation)
     conversation.append({"role": "assistant", "content": assistant_response_continue_writing})
@@ -122,11 +144,11 @@ story_string = assistant_response_title + f"\n\na story by Claude about {chosen_
 
 ### save the conversation and the story ###
 
-with open(f"conversations/{timestamp}_conversation_'{assistant_response_title}'.txt", "w") as f:
+with open(f"conversations/{timestamp}_conversation_'{assistant_response_title}'_{author_lname}.txt", "w") as f:
     for message in conversation:
         f.write(f"{message['role']}: {message['content']}\n\n")
 
-with open(f"stories/{timestamp}_story_'{assistant_response_title}'.txt", "w") as f:
+with open(f"stories/{timestamp}_story_'{assistant_response_title}'_{author_lname}.txt", "w") as f:
     f.write(story_string)
 
 ### make logs ###
@@ -134,8 +156,9 @@ with open(f"stories/{timestamp}_story_'{assistant_response_title}'.txt", "w") as
 end_time = datetime.now()
 seconds_taken = (end_time - start_time).seconds
 
-with open(f"logs/{timestamp}_log_'{assistant_response_title}'.txt", "w") as f:
+with open(f"logs/{timestamp}_log_'{assistant_response_title}'_{author_lname}.txt", "w") as f:
     f.write(f"model: {model}\n\n")
+    f.write(f"author: {author}\n\n")
     f.write(f"topics: {chosen_topics_string}\n\n")
     f.write(f"word counts of story chunks: {story_chunk_word_counts}\n\n")
     f.write(f"total time taken: {seconds_taken} seconds\n\n")

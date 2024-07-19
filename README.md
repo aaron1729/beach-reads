@@ -1,6 +1,6 @@
 # beach-reads
 
-## Overview
+## overview
 
 In the essay [ChatGPT vs. Me: Who Will Write a Better Beach Read?](https://www.nytimes.com/2024/07/09/opinion/chatgpt-beach-read.html), author Curtis Sittenfeld proposes a head-to-head competition against ChatGPT ("in its current iteration"), to see who can write a better "beach read". She asks her readers to select five topics from a list that she provides, and then explains the parameters.
 
@@ -12,7 +12,7 @@ She explains her motivations as follows.
 
 However, this arrangement does not constitute a true head-to-head competition. This is because, as is often touted, ChatGPT is merely "predicting the next word". If ChatGPT is asked to write the story in a single shot, then an appropriate head-to-head competition would require Sittenfeld to narrate her own story from start to finish in real time. Of course, that would surely not showcase the best of her writing abilities. A better competition would be to allow both Sittenfeld and ChatGPT to actually "think" before they begin writing.[^1]
 
-This repository contains a very simple Python script that enables ChatGPT to "think" and then write a story, based on five topics and in the style of Sittenfeld (or another author of the user's choice).
+This repository contains a very simple Python script that enables Anthropic's Claude -- a close cousin of ChatGPT -- to "think" and then write a story, based on five randomly chosen topics from Sittenfeld's list and in the style of Sittenfeld. In its current form (2024-07-18 around 7:30pmPT), it takes around 50-60 seconds and around $0.07-$0.10 to write one story (using Claude Sonnet 3.5).
 
 [^1] In ChatGPT's case, an apt name for this process is "unhobbling", in the sense that Leopold Aschenbrenner writes about [here](https://situational-awareness.ai/). Specifically, by construction, ChatGPT is "hobbled" (in comparison with its full cognitive capabilities) inasmuch as it is required to construct its responses one word at a time, without any possibility of meta-level thinking or revision.
 
@@ -22,3 +22,7 @@ This repository contains a very simple Python script that enables ChatGPT to "th
 `
 
 install packages via `conda install -c conda-forge PACKAGE_NAME` (rather than `pip install PACKAGE_NAME`).
+
+## to-do
+
+* add chatGPT

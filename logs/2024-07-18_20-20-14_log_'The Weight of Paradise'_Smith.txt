@@ -1,0 +1,10 @@
+model: claude-3-5-sonnet-20240620
+
+author: Zadie Smith
+
+topics: regret, privilege, self-consciousness, ambivalence, and ennui
+
+word counts of story chunks: [128, 246, 207, 212, 203, 150]
+
+total time taken: 58 seconds
+
