@@ -1,0 +1,10 @@
+model: gpt-4
+
+author: Curtis Sittenfeld
+
+topics: regret, ice cream, beer, swimsuits, and self-consciousness
+
+word counts of story chunks: [160, 264, 291, 323]
+
+total time taken: 120 seconds
+

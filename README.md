@@ -10,5 +10,5 @@ to create a conda environment, do `conda create --name beach-reads python=3.11`.
 
 ## to-do
 
-* fit txt encoding (displays with a few issues in browser)
-* add chatGPT (or even langchain)
+* fix txt encoding (displays with a few issues in browser)
+* upgrade to langchain

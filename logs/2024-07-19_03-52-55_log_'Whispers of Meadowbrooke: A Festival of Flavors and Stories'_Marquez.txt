@@ -1,0 +1,10 @@
+model: gpt-4-turbo
+
+author: Gabriel Garcia Marquez
+
+topics: ice cream, constipation, privilege, the Midwest, and kissing
+
+word counts of story chunks: [88, 552, 500, 575, 576, 552, 599, 614, 549, 420]
+
+total time taken: 323 seconds
+
