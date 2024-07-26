@@ -1,28 +1,20 @@
-import anthropic
-from openai import OpenAI
-import os
-
 from dotenv import load_dotenv
-load_dotenv()
-os.environ["ANTHROPIC_API_KEY"] = os.getenv("ANTHROPIC_API_KEY")
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-claude = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
-chatgpt = OpenAI() # this defaults to getting the API key using os.environ.get("OPENAI_API_KEY")
-
 from datetime import datetime
+from langchain.chat_models import init_chat_model
+import re
+import random
+
+load_dotenv()
+
 start_time = datetime.now()
 timestamp = start_time.strftime("%Y-%m-%d_%H-%M-%S")
 print(f"{timestamp = }")
 
-import re
 def word_count(text):
     return len(re.findall(r"\b\w+\b", text))
 
 story_length_target = 5_000
 response_length_target = 500
-
-import random
-# random.seed(1729)
 
 ### CHOOSE AN AUTHOR ###
 
@@ -59,9 +51,7 @@ print(f"{author = }")
 models = {
     "chatgpt": "gpt-4-turbo",
     "claude": "claude-3-5-sonnet-20240620",
-    }
-
-# choose the chatbot once and for all here
+}
 chatbot = "chatgpt"
 
 
@@ -69,24 +59,8 @@ chatbot = "chatgpt"
 system_message = f"You are a great writer, writing in the style of {author}. You are writing a 'beach read' vignette of ~{story_length_target} words."
 
 def ask(messages):
-    if chatbot == "claude":
-        response = claude.messages.create(
-            model=models["claude"],
-            max_tokens=1000,
-            # temperature=0.7,
-            system=system_message,
-            messages=messages,
-        )
-        output = response.content[0].text
-    elif chatbot == "chatgpt":
-        augmented_messages = [{"role": "system", "content": system_message}] + messages
-        response = chatgpt.chat.completions.create(
-        model=models["chatgpt"],
-        messages=augmented_messages,
-    )
-        output = response.choices[0].message.content
-    else:
-        return "sorry, chatbot not recognized"
+    llm = init_chat_model(model=models[chatbot])
+    output = llm.invoke([{"role": "system", "content": system_message}, *messages]).content
     print(f"{output = }")
     return output
 
