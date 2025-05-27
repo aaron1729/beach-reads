@@ -18,8 +18,9 @@ import re
 def word_count(text):
     return len(re.findall(r"\b\w+\b", text))
 
-story_length_target = 5_000
-response_length_target = 500
+story_length_target = 10_000
+response_length_target = 1_000
+max_tokens_for_claude = 2_048
 
 import random
 # random.seed(1729)
@@ -61,10 +62,8 @@ models = {
     "claude": "claude-3-5-sonnet-20240620",
     }
 
-# choose the chatbot once and for all here
+# choose the chatbot once and for all here -- a key of the `models` dict just above
 chatbot = "chatgpt"
-
-
 
 system_message = f"You are a great writer, writing in the style of {author}. You are writing a 'beach read' vignette of ~{story_length_target} words."
 
@@ -72,7 +71,7 @@ def ask(messages):
     if chatbot == "claude":
         response = claude.messages.create(
             model=models["claude"],
-            max_tokens=1000,
+            max_tokens=max_tokens_for_claude,
             # temperature=0.7,
             system=system_message,
             messages=messages,

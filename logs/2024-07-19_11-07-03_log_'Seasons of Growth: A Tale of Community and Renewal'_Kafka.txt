@@ -1,0 +1,10 @@
+model: gpt-4-turbo
+
+author: Franz Kafka
+
+topics: regret, sunscreen, privilege, sweat, and cookouts
+
+word counts of story chunks: [116, 782, 805, 661, 719, 762, 679, 723, 800, 767, 714, 753, 710, 692, 603]
+
+total time taken: 502 seconds
+
